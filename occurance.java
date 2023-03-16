@@ -9,7 +9,7 @@ public class occurance {
             count[str.charAt(i)]++;
         
         }
-        for(int i=65;i<128;i++)
+        for(int i=0;i<128;i++)
         {
             if(count[i]!=0)
             {
