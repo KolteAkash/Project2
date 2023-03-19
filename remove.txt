@@ -1,35 +1,23 @@
 public class removespace 
 {
-        public static void main(String[] args)
-         {
-            String input = "  I Love India  ";
-            String output = removeSpaces(input);
-            System.out.println("Input: \"" + input + "\"");
-            System.out.println("Output: \"" + output + "\"");
-        }
     
-        public static String removeSpaces(String input)
-         {
-            int start = 0; 
-            int end = input.length() - 1;
-    
-            while (start <= end && input.charAt(start) == ' ') 
+        public static void main(String[] args) 
+        {
+            String str = " I Love India ";
+            
+            // Removing leading spaces
+            while (str.charAt(0) == ' ') 
             {
-                start++;
+                str = str.substring(1);
             }
-    
-            while (end >= start && input.charAt(end) == ' ') 
+            
+            // Removing trailing spaces
+            while (str.charAt(str.length() - 1) == ' ') 
             {
-                end--;
+                str = str.substring(0, str.length() - 1);
             }
-    
-            StringBuilder ab = new StringBuilder();
-            for (int i = start; i <= end; i++)
-             {
-                ab.append(input.charAt(i));
-            }
-    
-            return ab.toString();
+            
+            System.out.println("Output: \"" + str + "\"");
         }
     
 }
