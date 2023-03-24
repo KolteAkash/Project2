@@ -1,21 +1,22 @@
-public class occurance {
-    public static void main(String args[])
-    {
-        
-        String str = "india";
-        int[] count = new int[128];
-        for(int i=0;i<str.length();i++)
-        {
-            count[str.charAt(i)]++;
-        
-        }
-        for(int i=0;i<128;i++)
-        {
-            if(count[i]!=0)
-            {
-                System.out.println((char)i +" = "+count[i]);
-            }
-        }
-    }
-        
-}
+import java.util.HashMap;     
+public class occurance  
+{  
+    public static void main(String args[])   
+    {  
+        String str = "India"; 
+        HashMap <Character, Integer> charCount = new HashMap<>();  
+        for (int i = str.length() - 1; i >= 0; i--)   
+        {  
+            if(charCount.containsKey(str.charAt(i)))   
+            {  
+                int count = charCount.get(str.charAt(i));  
+                charCount.put(str.charAt(i), ++count);  
+            }   
+            else   
+            {  
+                charCount.put(str.charAt(i),1);  
+            }  
+        }  
+    System.out.println(charCount);  
+    }  
+} 
