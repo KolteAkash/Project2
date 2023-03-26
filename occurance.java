@@ -12,7 +12,7 @@ public class occurance {
                 int count = charCount.get(str.charAt(i));
                 charCount.put(str.charAt(i), ++count);
             } else {
-                charCount.put(str.charAt(i), 1);
+                charCount.put(str.charAt(i), 1);1
             }
         }
         System.out.println(charCount);
