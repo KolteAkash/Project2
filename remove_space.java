@@ -1,21 +1,24 @@
 public class remove_space 
 {
-    
-        public static void main(String[] args) 
-        {
-            String str = " I Love India ";
-            
-            while (str.charAt(0) == ' ') 
+	public static void main(String[] args) 
+    {  
+        String str = " I Love India ";
+        int len = str.length();
+        int start = 0; 
+        int end = len - 1;
+                        
+        while (start < len && str.startsWith(" ", start)) 
             {
-                str = str.substring(1);
+                start++;
             }
-            
-            while (str.charAt(str.length() - 1) == ' ') 
-            {
-                str = str.substring(0, str.length() - 1);
-            }
-            
-            System.out.println("Output: \"" + str + "\"");
-        }
+                        
+            while (end >=0 && str.startsWith(" ",end)) 
+                {
+                    end--;
+                }
+                        
+                String result = (start <= end)? str.substring(start, end + 1) : "";
+                System.out.println("Result: \"" + result + "\"");
+    }
     
 }
