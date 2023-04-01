@@ -8,10 +8,15 @@ public class Missingnum
 {
     public static void main(String[] args) 
     {
-        int[] arr = {-10,1,2,5,8,-5,-3};
-        List<Integer> missing = MissingNumber(arr);
-        Collections.sort(missing);
-        System.out.println("Missing numbers in the array = " + missing);
+        int[] arr = {-1,7,5,6,1,4,2};
+        int[] arr1 = {-2,5,3,1,2};
+        List<Integer> missingArr = MissingNumber(arr);
+        List<Integer> missingArr1 = MissingNumber(arr1);
+
+        Collections.sort(missingArr);
+        Collections.sort(missingArr1);
+        System.out.println("Missing numbers in array 1 = " + missingArr);
+        System.out.println("Missing numbers in array 2 = " + missingArr1);
     }
 
     public static List<Integer> MissingNumber(int[] arr) 
@@ -31,7 +36,8 @@ public class Missingnum
         }
 
         Map<Integer, Integer> map = new HashMap<>();
-        for (int num : arr) {
+        for (int num : arr) 
+        {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
 
