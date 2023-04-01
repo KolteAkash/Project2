@@ -1,55 +1,43 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-public class Missingnum
+import java.util.Arrays;
+public class Missingnum 
 {
-    public static void main(String[] args) 
-    {
-        int[] arr = {7,5,6,1,4,2};
-        int[] arr1 = {5,3,1,2};
-        List<Integer> missingArr = MissingNumber(arr);
-        List<Integer> missingArr1 = MissingNumber(arr1);
+	
+	    public static void main(String[] args) {
+	        int[] arr1 = {7, 5, 6, 1, 4, 2};
+	        int[] arr2 = {5, 3, 1, 2};
 
-        Collections.sort(missingArr);
-        Collections.sort(missingArr1);
-        System.out.println("Missing numbers in array 1 = " + arr);
-        System.out.println("Missing numbers in array 2 = " + arr1);
-    }
+	        System.out.println("Missing numbers in arr1:");
+	        int[] missing1 = findMissingNumbers(arr1);
+	        System.out.println(Arrays.toString(missing1));
 
-    public static List<Integer> MissingNumber(int[] arr) 
-    {
-        int max = Integer.MIN_VALUE;
-        int min = Integer.MAX_VALUE;
-        for (int num : arr) 
-        {
-            if (num > max) 
-            {
-                max = num;
-            }
-            if (num < min) 
-            {
-                min = num;
-            }
-        }
+	        System.out.println("Missing numbers in arr2:");
+	        int[] missing2 = findMissingNumbers(arr2);
+	        System.out.println(Arrays.toString(missing2));
+	    }
 
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int num : arr) 
-        {
-            map.put(num, map.getOrDefault(num, 0) + 1);
-        }
+	    public static int[] findMissingNumbers(int[] arr) {
+	        Arrays.sort(arr);
+	        int count = 0;
 
-        List<Integer> missing = new ArrayList<>();
-        for (int i = min; i <= max; i++) 
-        {
-            if (!map.containsKey(i)) 
-            {
-                missing.add(i);
-            }
-        }
+	        for (int i = 1; i < arr.length; i++) {
+	            int diff = arr[i] - arr[i - 1];
+	            if (diff > 1) {
+	                count += diff - 1;
+	            }
+	        }
 
-        return missing;
-    }
-}
+	        int[] missingNumbers = new int[count];
+	        int index = 0;
+
+	        for (int i = 1; i < arr.length; i++) {
+	            int diff = arr[i] - arr[i - 1];
+	            if (diff > 1) {
+	                for (int j = arr[i - 1] + 1; j < arr[i]; j++) {
+	                    missingNumbers[index++] = j;
+	                }
+	            }
+	        }
+
+	        return missingNumbers;
+	    }
+	}
