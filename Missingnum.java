@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Missingnum 
+public class Missingnum1 
 {
     public static void main(String[] args) 
     {
-        int[] arr = {-1,7,5,6,1,4,2};
-        int[] arr1 = {-2,5,3,1,2};
+        int[] arr = {7,5,6,1,4,2};
+        int[] arr1 = {5,3,1,2};
         List<Integer> missingArr = MissingNumber(arr);
         List<Integer> missingArr1 = MissingNumber(arr1);
 
