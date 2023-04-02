@@ -1,4 +1,4 @@
-public class Longest_common
+public class Longest_common 
 {
         public static void main(String[] args) 
         {
